@@ -15,20 +15,17 @@ import java.util.Map;
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Actor {
-    /**
-    шкалы ценностей (как эмбединг key - отношение , value - идея)
-     */
+    /**  шкалы ценностей (как эмбединг key - отношение , value - идея)  */
     Map<Integer,Scale> prism;
 
-    /**
-     * ресурсы
-     */
+    /** ресурсы  */
     Map<Integer, Item> resources;
 
-    /**
-     * Реплики персонажа, типовые, обычные и пр
-     */
+    /** Реплики персонажа, типовые, обычные и пр */
     List<Cue> cues;
+
+    /** Любые черты личности проявляемые во вне (щель между зубами, носит плащ, заикается)*/
+    List<String> traits;
 
 
 }
