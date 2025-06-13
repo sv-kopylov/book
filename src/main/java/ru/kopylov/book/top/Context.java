@@ -1,8 +1,8 @@
 package ru.kopylov.book.top;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 
-import jakarta.xml.bind.annotation.XmlAccessType;
-import jakarta.xml.bind.annotation.XmlAccessorType;
-import jakarta.xml.bind.annotation.XmlRootElement;
 import ru.kopylov.book.model.actor.Actor;
 import ru.kopylov.book.model.world.Epoch;
 import ru.kopylov.book.model.world.Law;
@@ -18,4 +18,6 @@ public class Context {
     private List<Epoch> epoches;
     private List<Law> laws;
 
+    public Context() {
+    }
 }

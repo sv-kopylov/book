@@ -1,8 +1,8 @@
 package ru.kopylov.book.model.world.base;
 
-import jakarta.xml.bind.annotation.XmlAccessType;
-import jakarta.xml.bind.annotation.XmlAccessorType;
-import jakarta.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /*
     Связь между любыми двумя идеями
@@ -16,5 +16,8 @@ public class Connection {
     public Connection(Idea source, Idea target) {
         this.source = source;
         this.target = target;
+    }
+
+    public Connection() {
     }
 }

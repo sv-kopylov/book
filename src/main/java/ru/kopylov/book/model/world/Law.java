@@ -1,17 +1,22 @@
 package ru.kopylov.book.model.world;
 
-import jakarta.xml.bind.annotation.XmlAccessType;
-import jakarta.xml.bind.annotation.XmlAccessorType;
-import jakarta.xml.bind.annotation.XmlRootElement;
+
 import ru.kopylov.book.model.world.base.Idea;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
 /*
-    Идея имеющая реализацию в виде прав или обязанностей или неприложного правила природы
+    Idea имеющая реализацию в виде прав или обязанностей или неприложного правила природы
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Law extends Idea {
     public Law(String gist) {
         super(gist);
+    }
+
+    public Law() {
     }
 }

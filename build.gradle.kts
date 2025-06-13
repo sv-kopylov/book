@@ -10,9 +10,14 @@ repositories {
 }
 
 dependencies {
-    implementation("jakarta.xml.bind:jakarta.xml.bind-api:4.0.0")
-    implementation("org.glassfish.jaxb:jaxb-runtime:4.0.2")
-//    testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.1")
-//    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.1")
+//    implementation("jakarta.xml.bind:jakarta.xml.bind-api:3.0.1")
+//    implementation("org.glassfish.jaxb:jaxb-runtime:4.0.2")
+//    implementation("javax.xml.bind:jaxb-api:2.2.4")
+
+    implementation ("com.sun.xml.bind:jaxb-core:2.3.0.1")
+    implementation ("javax.xml.bind:jaxb-api:2.3.1")
+    implementation ("com.sun.xml.bind:jaxb-impl:2.3.1")
+    implementation ("org.javassist:javassist:3.25.0-GA")
+
 }
 
