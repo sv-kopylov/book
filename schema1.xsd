@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="actor" type="actor"/>
+
+  <xs:element name="connection" type="connection"/>
+
+  <xs:element name="context" type="context"/>
+
+  <xs:element name="cue" type="cue"/>
+
+  <xs:element name="domain" type="domain"/>
+
+  <xs:element name="epoch" type="epoch"/>
+
+  <xs:element name="idea" type="idea"/>
+
+  <xs:element name="item" type="item"/>
+
+  <xs:element name="law" type="law"/>
+
+  <xs:element name="narrative" type="narrative"/>
+
+  <xs:element name="scale" type="scale"/>
+
+  <xs:element name="scene" type="scene"/>
+
+  <xs:element name="story" type="story"/>
+
+  <xs:element name="view" type="view"/>
+
+  <xs:element name="world" type="world"/>
+
+  <xs:complexType name="story">
+    <xs:annotation>
+      <xs:documentation>Центральный корневой элемент, который содержит все остальные</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element ref="context" minOccurs="0"/>
+      <xs:element ref="narrative" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="context">
+    <xs:sequence>
+      <xs:element name="actors" type="actor" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="worlds" type="world" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="epoches" type="epoch" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="laws" type="law" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="actor">
+    <xs:sequence>
+      <xs:element name="prism">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="entry" minOccurs="0" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="key" minOccurs="0" type="xs:int"/>
+                  <xs:element name="value" minOccurs="0" type="scale"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="resources">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="entry" minOccurs="0" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="key" minOccurs="0" type="xs:int"/>
+                  <xs:element name="value" minOccurs="0" type="item"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="cues" type="cue" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="traits" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="scale">
+    <xs:sequence>
+      <xs:element ref="idea" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="idea">
+    <xs:sequence>
+      <xs:element name="gist" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="item">
+    <xs:complexContent>
+      <xs:extension base="idea">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="cue">
+    <xs:sequence>
+      <xs:element ref="actor" minOccurs="0"/>
+      <xs:element name="que" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="world">
+    <xs:sequence>
+      <xs:element name="domains" type="domain" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="connections" type="connection" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="domain">
+    <xs:sequence>
+      <xs:element name="connections" type="connection" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="connection">
+    <xs:sequence>
+      <xs:element name="source" type="idea" minOccurs="0"/>
+      <xs:element name="target" type="idea" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="epoch">
+    <xs:sequence>
+      <xs:element name="connections" type="connection" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="worlds" type="world" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="law">
+    <xs:complexContent>
+      <xs:extension base="idea">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="narrative">
+    <xs:sequence>
+      <xs:element name="scenes" type="scene" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="views" type="view" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="scene">
+    <xs:sequence>
+      <xs:element name="subScenes" type="scene" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="views" type="view" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="view">
+    <xs:sequence/>
+  </xs:complexType>
+</xs:schema>
+
+
+

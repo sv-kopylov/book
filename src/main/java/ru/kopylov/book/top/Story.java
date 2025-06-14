@@ -6,6 +6,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
+/**
+ * Центральный корневой элемент который содержит все остальные
+ */
 public class Story {
     private Context context;
     private Narrative narrative;

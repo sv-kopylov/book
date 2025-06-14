@@ -1,0 +1,1 @@
+py -c 'import yaml, xmltodict; print(yaml.dump(xmltodict.parse(open("main_schema.xsd").read()), allow_unicode=True))'>schema.yaml

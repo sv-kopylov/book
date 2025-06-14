@@ -10,9 +10,7 @@ repositories {
 }
 
 dependencies {
-//    implementation("jakarta.xml.bind:jakarta.xml.bind-api:3.0.1")
-//    implementation("org.glassfish.jaxb:jaxb-runtime:4.0.2")
-//    implementation("javax.xml.bind:jaxb-api:2.2.4")
+
 
     implementation ("com.sun.xml.bind:jaxb-core:2.3.0.1")
     implementation ("javax.xml.bind:jaxb-api:2.3.1")
